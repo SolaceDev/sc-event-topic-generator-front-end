@@ -26,8 +26,8 @@ npm run build
 A multi-stage docker build that first builds the production version, then sticks it in a custom configured nginx container.
 
 ```
-./buildDocker.sh
-./runDocker.sh
+./dockerBuild.sh
+./dockerRun.sh
 ```
 
 http://localhost:1234

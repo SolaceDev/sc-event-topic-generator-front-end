@@ -1,8 +1,6 @@
-# Webpack Frontend Starterkit
+# sc-event-topic-generator-front-end
 
-[![Dependabot badge](https://flat.badgen.net/dependabot/wbkd/webpack-starter?icon=dependabot)](https://dependabot.com/)
-
-A lightweight foundation for your next webpack based frontend project.
+A tool for generating messages with a probabilistic topic generator based on a schema description.
 
 
 ### Installation
@@ -23,11 +21,11 @@ npm start
 npm run build
 ```
 
-### Features:
+### Docker
 
-* ES6 Support via [babel](https://babeljs.io/) (v7)
-* SASS Support via [sass-loader](https://github.com/jtangelder/sass-loader)
-* Linting via [eslint-loader](https://github.com/MoOx/eslint-loader)
+```
+./buildDocker.sh
+./runDocker.sh
+```
 
-When you run `npm run build` we use the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) to move the css to a separate file. The css file gets included in the head of the `index.html`.
-# sc-event-topic-generator-front-end
+http://localhost:1234

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Solace Event Discovery</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="public/favicon.png">
+</head>
+<body>
+    <h1 class="title">Message Generator</h1>
+    <div class="main-content">
+        <!-- <div id="sunburst-parent">
+            <iframe id="sunburst" class="sunburst-iframe" scrolling="no" frameborder="0"></iframe>
+        </div> -->
+        <div class="centered-view" id="choose-broker-view">
+            <h3>Enter Target Broker Details</h3>
+            <form class="form-input">
+                <p class="input-label">Host</p>
+                <input id="broker-host" type="text" placeholder="wss://192.168.3.3:443" class="text-input-box" size="58" value="greg"/>
+                <p class="input-label">Vpn Name</p>
+                <input id="broker-msgVpn" type="text" placeholder="msgVpn" class="text-input-box" size="58"/>
+                <p class="input-label">Client Username</p>
+                <input id="broker-client-username" type="text" placeholder="solace-client-username" class="text-input-box" size="58"/>
+                <p class="input-label">Client Password</p>
+                <input id="broker-client-password" type="text" placeholder="*************" class="text-input-box" size="58"/>
+            </form>
+            <h3>Enter Message Details</h3>
+            <div class="spacer-small"></div>
+            <form class="form-input">
+                <span class="input-label">Topic Scheme: </span>
+                <span>SFMTA</span>
+                <div class="spacer-small"></div>
+                <span class="input-label">Number of Messages to Send : </span>
+                <span id="numberOfMessages">500</span>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="1000" value="500" class="slider" id="numberOfMessagesSlider"/>
+                </div>
+                <div class="spacer-small"></div>
+                <span class="input-label">Message Rate : </span>
+                <span id="message-rate">Medium</span>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="1001" value="500" class="slider" id="messageRate"/>
+                </div>
+            </form>
+            <button id= "start-button" class="start-button">Start Sending Messages</button><br>
+            <button id="save-local-button" class="save-local-button">Save As Default</button>
+            <span class="horizontal-spacer"></span>
+            <button id ="clear-local-button" class="clear-local-button">Clear Default</button>
+            <div class="spacer-small"></div>
+            <div id="progress"><span id="progress-text"></span></div>
+        </div>
+    </div>
+</body>
+</html>
+

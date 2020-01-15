@@ -1,0 +1,179 @@
+@font-face {
+    font-family: 'Rubik';
+    src: url('fonts/Rubik-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Rubik-Regular';
+    src: url('fonts/Rubik-Regular.ttf') format('truetype');
+}
+
+body {
+    background-color: #474747;
+    color: #EEEEEE;
+    font-family: Rubik, sans-serif;
+    font-size: 15px;
+    margin: 0px;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 110%;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 110%;
+    padding-top: 35px;
+    padding-bottom: 10px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+/** Layout **/
+.main-content {
+    margin-left: 0px;
+    background-color: rgb(250, 250, 250);
+    min-height: 890px;
+}
+
+.title {
+    margin-left: 25%;
+    margin-top: 17px;
+    margin-bottom: 17px;
+}
+
+.centered-view {
+    font-family: Rubik-Regular, sans-serif;
+    margin-top: 15px;
+    margin-left: 25%;
+    color: #474747;
+}
+
+.input-label {
+    margin-top: 14px;
+    margin-bottom: 5px;
+    font-weight: bolder;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.5);
+    font-family: Rubik, sans-serif;
+}
+
+.form-input {
+    margin-left: 10px;
+}
+
+.text-input-box {
+    height: 30px;
+    font-size: 18px;
+    font-weight: 300;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.textarea-input-box {
+    height: 80px;
+    font-size: 18px;
+    font-weight: 300;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.spacer-small {
+    margin-top: 17px;
+}
+
+/** Buttons **/
+.start-button {
+    margin-top: 30px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 65px;
+    color: white;
+    border: none;
+    background-image: linear-gradient(290deg, #00AD93, #00c895);
+    font-size: 16px;
+    padding: 0px 40px;    
+    outline: none;
+}
+
+.start-button:active {
+    background-image: linear-gradient(290deg, rgb(0, 119, 101), rgb(0, 160, 120));
+}
+
+.start-button:hover {
+    box-shadow: 0 0 0px 3px #00a47e30;
+}
+
+.save-local-button {
+    margin-top: 30px;
+    height: 35px;
+    line-height: 30px;
+    border-radius: 65px;
+    color: white;
+    border: none;
+    background-image: linear-gradient(290deg, #595959, #707070);
+    font-size: 16px;
+    padding: 0px 40px;    
+    outline: none;
+}
+
+.save-local-button:active {
+    background-image: linear-gradient(290deg, #444444, #555454);
+}
+
+.save-local-button:hover {
+    box-shadow: 0 0 0px 3px #70707030;
+}
+
+.clear-local-button {
+    margin-top: 10px;
+    height: 35px;
+    line-height: 30px;
+    border-radius: 65px;
+    color: white;
+    border: none;
+    background-image: linear-gradient(290deg, #F56F02B0, #F56F02A0);
+    font-size: 16px;
+    padding: 0px 50px;    
+    outline: none;
+}
+
+.clear-local-button:active {
+    background-image: linear-gradient(290deg, #F56F0280, #F56F0290);
+}
+
+.clear-local-button:hover {
+    box-shadow: 0 0 0px 3px #F56F0230;
+}
+
+#progress-text {
+    font-size: 17px;
+}
+
+#progress {
+    padding: 10px;
+    width: 550px;
+    background: #42B4D590;
+    border-radius: 10px;
+}
+
+.horizontal-spacer {
+    margin-left: 10px;
+}
+
+.fade-out {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+}
+
+.fade-in {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 500ms;
+}
+  

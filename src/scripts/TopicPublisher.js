@@ -107,12 +107,11 @@ var TopicPublisher = function(hosturl, username, pass, vpn) {
     };
 
     // Publishes one message
-    publisher.publish = function (topicName) {
+    publisher.publish = function(topicName, messageBody) {
         if (publisher.session !== null) {
-            var messageText = jsonBody;
             var message = solace.SolclientFactory.createMessage();
             message.setDestination(solace.SolclientFactory.createTopicDestination(topicName));
-            message.setBinaryAttachment(messageText);
+            message.setBinaryAttachment(messageBody);
             message.setDeliveryMode(solace.MessageDeliveryModeType.DIRECT);
             //publisher.log('Publishing message "' + messageText + '" to topic "' + topicName + '"...');
             try {

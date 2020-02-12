@@ -1,6 +1,8 @@
 # sc-event-topic-generator-front-end
 
-A tool for generating messages with a probabilistic topic generator based on a schema description.
+A tool for generating messages with a probabilistic topic generator based on a schema description. The default schema generates fictitious messages for the SFMTA. 
+
+To create your own schema, update the file src/scripts/transportJson.js
 
 
 ### Installation

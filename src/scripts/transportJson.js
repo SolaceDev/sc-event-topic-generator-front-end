@@ -79,7 +79,7 @@ const transportSchema = {
                 "notice-rt-version",
                 "alert-rt-version"
             ],
-            "distribution": [0.55, 0.35, 0.06, 0.04]
+            "distribution": [0.55, 0.15, 0.06, 0.04]
         }
     },
 
@@ -172,8 +172,8 @@ const transportSchema = {
     },
     {
         "name": "rt-random-geo-lat",
-        "type": "random-long-3",
-        "value": "37.613,37.830",
+        "type": "random-long-3-4",
+        "value": "37.6130,37.8300",
         "decendants": {
             "children": [
                 "rt-random-geo-long"
@@ -182,8 +182,8 @@ const transportSchema = {
     },
     {
         "name": "rt-random-geo-long",
-        "type": "random-long-3",
-        "value": "-122.379,-122.512"
+        "type": "random-long-3-4",
+        "value": "-122.3790,-122.5120"
     },
 
     {
@@ -377,7 +377,7 @@ const transportSchema = {
                 "notice-bus-version",
                 "alert-bus-version"
             ],
-            "distribution": [0.45, 0.45, 0.06, 0.04]
+            "distribution": [0.45, 0.25, 0.06, 0.04]
         }
     },
 
@@ -601,7 +601,7 @@ const transportSchema = {
                 "notice-light-rail-version",
                 "alert-light-rail-version"
             ],
-            "distribution": [0.2, 0.7, 0.06, 0.04]
+            "distribution": [0.2, 0.3, 0.06, 0.04]
         }
     },
 

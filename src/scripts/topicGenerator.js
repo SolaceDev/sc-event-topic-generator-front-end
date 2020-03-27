@@ -37,10 +37,14 @@ function processNode(nodeName, topicTree, topicLevelList) {
 
     if (node.type.startsWith("random-long")) {
         // Get the format
-        const fixed = parseInt(node.type.split('-')[2]);
+        const wholeLength = parseInt(node.type.split('-')[2]);
+        const decimalLength = parseInt(node.type.split('-')[3]);
         const lower = parseFloat(node.value.split(',')[0]);
         const upper = parseFloat(node.value.split(',')[1]);
-        value = (lower + ((upper - lower) * Math.random())).toFixed(fixed);
+        value = (lower + ((upper - lower) * Math.random())).toFixed(decimalLength);
+        if (value.indexOf('.') == 2) {
+            value = "0" + value;
+        }
     } else {
         switch (node.type) {
             case 'const': {

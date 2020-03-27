@@ -1,6 +1,42 @@
 import solace from 'solclientjs';
 
-var jsonBody = `{"message": "This is the message body"}`;
+var jsonV1Body = `{"message": "This is the message body"}`;
+var jsonBody = `{"message": "This is the message body", "regularbody", "sdfglsdfjgsldkfgjhsdflkgjhs"}`;
+var largeBody = `{"message": "This is the message body asfasdfasdfasdf asdfa sdf as asdf asdfa sdfa sdf",
+"asfd": "asdfasfasdfasdfllsdfglksdfjghsldkfjghsdlfkjghsdlfkgjhsdlfkgjhsdflkgjhsdlfkgjhsdflgkjshdflgkjhsdflkjgh",
+"fdsasdfasdfasdf": "vfsdwervwerwerfslfgskdfjghwlkehrwlekrhslkdjvnsdfvsdlfkjelkqherlkwjehrvlsdkjfvsdflkjvshd",
+"vfsldfkjsvndfvlskn":, "sdfgkjsdfglksjdfhgslkdjfghweoriguwhergwejrghwlekjghsdlfkgjshdflgkjshdflgkjshdlfkjghs",
+"sdfgsdfgsdfgs": "sdfgslkdfjghsldkfgjhsdlfkgjhsdlfkgjhsdlfkjghsdlfkgjhsdlfkgjhsldfkgjhsldkfjghsldkfjhgslkdfjh",
+"asfd": "asdfasfasdfasdfllsdfglksdfjghsldkfjghsdlfkjghsdlfkgjhsdlfkgjhsdflkgjhsdlfkgjhsdflgkjshdflgkjhsdflkjgh",
+"fdsasdfasdfasdf": "vfsdwervwerwerfslfgskdfjghwlkehrwlekrhslkdjvnsdfvsdlfkjelkqherlkwjehrvlsdkjfvsdflkjvshd",
+"vfsldfkjsvndfvlskn":, "sdfgkjsdfglksjdfhgslkdjfghweoriguwhergwejrghwlekjghsdlfkgjshdflgkjshdflgkjshdlfkjghs",
+"sdfgsdfgsdfgs": "sdfgslkdfjghsldkfgjhsdlfkgjhsdlfkgjhsdlfkjghsdlfkgjhsdlfkgjhsldfkgjhsldkfjghsldkfjhgslkdfjh",
+"asfd": "asdfasfasdfasdfllsdfglksdfjghsldkfjghsdlfkjghsdlfkgjhsdlfkgjhsdflkgjhsdlfkgjhsdflgkjshdflgkjhsdflkjgh",
+"fdsasdfasdfasdf": "vfsdwervwerwerfslfgskdfjghwlkehrwlekrhslkdjvnsdfvsdlfkjelkqherlkwjehrvlsdkjfvsdflkjvshd",
+"vfsldfkjsvndfvlskn":, "sdfgkjsdfglksjdfhgslkdjfghweoriguwhergwejrghwlekjghsdlfkgjshdflgkjshdflgkjshdlfkjghs",
+"sdfgsdfgsdfgs": "sdfgslkdfjghsldkfgjhsdlfkgjhsdlfkgjhsdlfkjghsdlfkgjhsdlfkgjhsldfkgjhsldkfjghsldkfjhgslkdfjh",
+"asfd": "asdfasfasdfasdfllsdfglksdfjghsldkfjghsdlfkjghsdlfkgjhsdlfkgjhsdflkgjhsdlfkgjhsdflgkjshdflgkjhsdflkjgh",
+"fdsasdfasdfasdf": "vfsdwervwerwerfslfgskdfjghwlkehrwlekrhslkdjvnsdfvsdlfkjelkqherlkwjehrvlsdkjfvsdflkjvshd",
+"vfsldfkjsvndfvlskn":, "sdfgkjsdfglksjdfhgslkdjfghweoriguwhergwejrghwlekjghsdlfkgjshdflgkjshdflgkjshdlfkjghs",
+"sdfgsdfgsdfgs": "sdfgslkdfjghsldkfgjhsdlfkgjhsdlfkgjhsdlfkjghsdlfkgjhsdlfkgjhsldfkgjhsldkfjghsldkfjhgslkdfjh",
+"asfd": "asdfasfasdfasdfllsdfglksdfjghsldkfjghsdlfkjghsdlfkgjhsdlfkgjhsdflkgjhsdlfkgjhsdflgkjshdflgkjhsdflkjgh",
+"fdsasdfasdfasdf": "vfsdwervwerwerfslfgskdfjghwlkehrwlekrhslkdjvnsdfvsdlfkjelkqherlkwjehrvlsdkjfvsdflkjvshd",
+"vfsldfkjsvndfvlskn":, "sdfgkjsdfglksjdfhgslkdjfghweoriguwhergwejrghwlekjghsdlfkgjshdflgkjshdflgkjshdlfkjghs",
+"sdfgsdfgsdfgs": "sdfgslkdfjghsldkfgjhsdlfkgjhsdlfkgjhsdlfkjghsdlfkgjhsdlfkgjhsldfkgjhsldkfjghsldkfjhgslkdfjh",
+"asfd": "asdfasfasdfasdfllsdfglksdfjghsldkfjghsdlfkjghsdlfkgjhsdlfkgjhsdflkgjhsdlfkgjhsdflgkjshdflgkjhsdflkjgh",
+"fdsasdfasdfasdf": "vfsdwervwerwerfslfgskdfjghwlkehrwlekrhslkdjvnsdfvsdlfkjelkqherlkwjehrvlsdkjfvsdflkjvshd",
+"asfd": "asdfasfasdfasdfllsdfglksdfjghsldkfjghsdlfkjghsdlfkgjhsdlfkgjhsdflkgjhsdlfkgjhsdflgkjshdflgkjhsdflkjgh",
+"fdsasdfasdfasdf": "vfsdwervwerwerfslfgskdfjghwlkehrwlekrhslkdjvnsdfvsdlfkjelkqherlkwjehrvlsdkjfvsdflkjvshd",
+"vfsldfkjsvndfvlskn":, "sdfgkjsdfglksjdfhgslkdjfghweoriguwhergwejrghwlekjghsdlfkgjshdflgkjshdflgkjshdlfkjghs",
+"sdfgsdfgsdfgs": "sdfgslkdfjghsldkfgjhsdlfkgjhsdlfkgjhsdlfkjghsdlfkgjhsdlfkgjhsldfkgjhsldkfjghsldkfjhgslkdfjh",
+"asfd": "asdfasfasdfasdfllsdfglksdfjghsldkfjghsdlfkjghsdlfkgjhsdlfkgjhsdflkgjhsdlfkgjhsdflgkjshdflgkjhsdflkjgh",
+"fdsasdfasdfasdf": "vfsdwervwerwerfslfgskdfjghwlkehrwlekrhslkdjvnsdfvsdlfkjelkqherlkwjehrvlsdkjfvsdflkjvshd",
+"vfsldfkjsvndfvlskn":, "sdfgkjsdfglksjdfhgslkdjfghweoriguwhergwejrghwlekjghsdlfkgjshdflgkjshdflgkjshdlfkjghs",
+"sdfgsdfgsdfgs": "sdfgslkdfjghsldkfgjhsdlfkgjhsdlfkgjhsdlfkjghsdlfkgjhsdlfkgjhsldfkgjhsldkfjghsldkfjhgslkdfjh",
+"asfd": "asdfasfasdfasdfllsdfglksdfjghsldkfjghsdlfkjghsdlfkgjhsdlfkgjhsdflkgjhsdlfkgjhsdflgkjshdflgkjhsdflkjgh",
+"fdsasdfasdfasdf": "vfsdwervwerwerfslfgskdfjghwlkehrwlekrhslkdjvnsdfvsdlfkjelkqherlkwjehrvlsdkjfvsdflkjvshd",
+"vfsldfkjsvndfvlskn":, "sdfgkjsdfglksjdfhgslkdjfghweoriguwhergwejrghwlekjghsdlfkgjshdflgkjshdflgkjshdlfkjghs",
+"sdfgsdfgsdfgs": "sdfgslkdfjghsldkfgjhsdlfkgjhsdlfkgjhsdlfkjghsdlfkgjhsdlfkgjhsldfkgjhsldkfjghsldkfjhgslkdfjh"}`;
 
 var TopicPublisher = function(hosturl, username, pass, vpn) {
     'use strict';
@@ -107,15 +143,27 @@ var TopicPublisher = function(hosturl, username, pass, vpn) {
     };
 
     // Publishes one message
-    publisher.publish = function(topicName, messageBody) {
+    publisher.publish = function(topicName) {
         if (publisher.session !== null) {
             var message = solace.SolclientFactory.createMessage();
             message.setDestination(solace.SolclientFactory.createTopicDestination(topicName));
-            message.setBinaryAttachment(messageBody);
+            message.setBinaryAttachment(jsonBody);
+            if (topicName.includes("notice") || topicName.includes("alert")) {
+                message.setBinaryAttachment(largeBody);
+            } else if (topicName.includes("v1")) {
+                message.setBinaryAttachment(jsonV1Body);
+            }
+            //console.log("Message body", messageBody);
             message.setDeliveryMode(solace.MessageDeliveryModeType.DIRECT);
             //publisher.log('Publishing message "' + messageText + '" to topic "' + topicName + '"...');
             try {
                 publisher.session.send(message);
+                if (topicName.includes("geo-update")) {
+                    publisher.session.send(message);
+                    publisher.session.send(message);
+                    publisher.session.send(message);
+                    publisher.session.send(message);
+                }
                 //publisher.log('Message published.');
                 return true;
             } catch (error) {

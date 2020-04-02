@@ -74,10 +74,10 @@ const transportSchema = {
         "type": "const",
         "decendants": {
             "children": [
-                "eta-rt-version",
-                "geo-loc-rt-version",
-                "notice-rt-version",
-                "alert-rt-version"
+                "eta-update",
+                "geo-loc-rt",
+                "notice-rt",
+                "alert-rt"
             ],
             "distribution": [0.55, 0.15, 0.06, 0.04]
         }
@@ -93,7 +93,7 @@ const transportSchema = {
         "distribution": [1, 6],
         "decendants": {
             "children": [
-                "eta-update"
+                "station-rt-name"
             ]
         }
     },
@@ -104,7 +104,7 @@ const transportSchema = {
         "value": "eta-update",
         "decendants": {
             "children": [
-                "station-rt-name"
+                "eta-rt-version"
             ]
         }
     },
@@ -137,16 +137,22 @@ const transportSchema = {
     },
 
     {
-        "name": "geo-loc-rt-version",
-        "type": "enum",
-        "value": [
-            "v2",
-            "v1"
-        ],
-        "distribution": [0.65, 0.35],
+        "name": "geo-loc-rt-version-v1",
+        "type": "const",
+        "value": "v1",
         "decendants": {
             "children": [
-                "geo-loc-rt"
+                "rt-geo-train-num-geo-nochild"
+            ]
+        }
+    },
+    {
+        "name": "geo-loc-rt-version-v2",
+        "type": "const",
+        "value": "v2",
+        "decendants": {
+            "children": [
+                "rt-geo-train-num-geo"
             ]
         }
     },
@@ -156,8 +162,10 @@ const transportSchema = {
         "value": "geo-update",
         "decendants": {
             "children": [
-                "rt-geo-train-num-geo"
-            ]
+                "geo-loc-rt-version-v2",
+                "geo-loc-rt-version-v1"
+            ],
+            "distribution": [0.65, 0.35],
         }
     },
     {
@@ -169,6 +177,11 @@ const transportSchema = {
                 "rt-random-geo-lat"
             ]
         }
+    },
+    {
+        "name": "rt-geo-train-num-geo-nochild",
+        "type": "custom",
+        "value": "rt-train-numbers"
     },
     {
         "name": "rt-random-geo-lat",
@@ -192,8 +205,10 @@ const transportSchema = {
         "value": "v1",
         "decendants": {
             "children": [
-                "notice-rt"
-            ]
+                "rt-notice-train",
+                "rt-notice-station"
+            ],
+            "distribution": [0.7, 0.3]
         }
     },
 
@@ -203,10 +218,8 @@ const transportSchema = {
         "value": "notice",
         "decendants": {
             "children": [
-                "rt-notice-train",
-                "rt-notice-station"
-            ],
-        "distribution": [0.7, 0.3]
+                "notice-rt-version"
+            ]
         }
     },
 
@@ -289,8 +302,10 @@ const transportSchema = {
         "value": "v2",
         "decendants": {
             "children": [
-                "alert-rt"
-            ]
+                "rt-alert-train",
+                "rt-alert-station"
+            ],
+         "distribution": [0.4, 0.6]
         }
     },
    {
@@ -299,10 +314,8 @@ const transportSchema = {
         "value": "alert",
         "decendants": {
             "children": [
-                "rt-alert-train",
-                "rt-alert-station"
-            ],
-        "distribution": [0.4, 0.6]
+                "alert-rt-version"
+            ]
         }
     },
 
@@ -372,10 +385,10 @@ const transportSchema = {
         "value": "bus",
         "decendants": {
             "children": [
-                "eta-bus-version",
-                "geo-loc-rt-version",
-                "notice-bus-version",
-                "alert-bus-version"
+                "eta-bus",
+                "geo-loc-rt",
+                "notice-bus",
+                "alert-bus"
             ],
             "distribution": [0.45, 0.25, 0.06, 0.04]
         }
@@ -387,7 +400,7 @@ const transportSchema = {
         "value": "eta-update",
         "decendants": {
             "children": [
-                "eta-bus-stop-bus-num"
+                "eta-bus-version"
             ]
         }
     },
@@ -397,7 +410,7 @@ const transportSchema = {
         "value": "v1",
         "decendants": {
             "children": [
-                "eta-bus"
+                "eta-bus-stop-bus-num"
             ]
         }
     },
@@ -436,8 +449,10 @@ const transportSchema = {
         "value": "v1",
         "decendants": {
             "children": [
-                "notice-bus"
-            ]
+                "bus-notice-bus",
+                "bus-notice-stop"
+            ],
+            "distribution": [0.7, 0.3]
         }
     },
     {
@@ -446,10 +461,8 @@ const transportSchema = {
         "value": "notice",
         "decendants": {
             "children": [
-                "bus-notice-bus",
-                "bus-notice-stop"
-            ],
-        "distribution": [0.7, 0.3]
+                "notice-bus-version",
+            ]
         }
     },
 
@@ -458,7 +471,7 @@ const transportSchema = {
         "type": "const",
         "value": "route",
        "distribution": "equal",
-        "decendants": {
+       "decendants": {
             "children": [
                 "bus-notice-reason"
             ]
@@ -517,8 +530,10 @@ const transportSchema = {
         "value": "v1",
         "decendants": {
             "children": [
-                "alert-bus"
-            ]
+                "bus-alert-bus",
+                "bus-alert-stop"
+            ],
+            "distribution": [0.4, 0.6]
         }
     },
     {
@@ -527,10 +542,8 @@ const transportSchema = {
         "value": "alert",
         "decendants": {
             "children": [
-                "bus-alert-bus",
-                "bus-alert-stop"
-            ],
-            "distribution": [0.4, 0.6]
+                "alert-bus-version",
+            ]
         }
     },
 
@@ -596,10 +609,10 @@ const transportSchema = {
         "value": "light-rail",
         "decendants": {
             "children": [
-                "eta-light-rail-version",
-                "geo-loc-rt-version",
-                "notice-light-rail-version",
-                "alert-light-rail-version"
+                "eta-light-rail",
+                "geo-loc-rt",
+                "notice-light-rail",
+                "alert-light-rail"
             ],
             "distribution": [0.2, 0.3, 0.06, 0.04]
         }
@@ -611,7 +624,7 @@ const transportSchema = {
         "value": "eta-update",
         "decendants": {
             "children": [
-                "eta-light-rail-stop"
+                "eta-light-rail-version"
             ]
         }
     },
@@ -621,7 +634,7 @@ const transportSchema = {
         "value": "v1",
         "decendants": {
             "children": [
-                "eta-light-rail"
+                "eta-light-rail-stop"
             ]
         }
     },
@@ -661,10 +674,8 @@ const transportSchema = {
         "value": "notice",
         "decendants": {
             "children": [
-                "light-rail-notice-route",
-                "light-rail-notice-stops"
-            ],
-        "distribution": [0.7, 0.3]
+                "notice-light-rail-version"
+            ]
         }
     },
 
@@ -675,8 +686,10 @@ const transportSchema = {
        "distribution": "equal",
         "decendants": {
             "children": [
-                "notice-light-rail"
-            ]
+                "light-rail-notice-route",
+                "light-rail-notice-stops"
+            ],
+            "distribution": [0.7, 0.3]
         }
     },
 
@@ -744,10 +757,8 @@ const transportSchema = {
         "value": "alert",
         "decendants": {
             "children": [
-                "alert-light-rail-route",
-                "light-rail-alert-stop"
-            ],
-        "distribution": [0.4, 0.6]
+                "alert-light-rail-version"
+            ]
         }
     },
     {
@@ -756,8 +767,10 @@ const transportSchema = {
         "value": "v1",
         "decendants": {
             "children": [
-                "alert-light-rail"
-            ]
+                "alert-light-rail-route",
+                "light-rail-alert-stop"
+            ],
+            "distribution": [0.4, 0.6]
         }
     },
     {

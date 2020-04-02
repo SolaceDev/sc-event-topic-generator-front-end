@@ -1,8 +1,19 @@
 import solace from 'solclientjs';
 
 var jsonV1Body = `{"message": "This is the message body"}`;
-var jsonBody = `{"message": "This is the message body", "regularbody", "sdfglsdfjgsldkfgjhsdflkgjhs"}`;
-var largeBody = `{"message": "This is the message body asfasdfasdfasdf asdfa sdf as asdf asdfa sdfa sdf",
+var jsonBody = [];
+jsonBody.push(`{"message": "This is the message body", "regularbody", "sdfglsdfjgsldkfgjhsdflkgjhs"}`);
+jsonBody.push(jsonBody[0] + `zzzzzz`);
+jsonBody.push(jsonBody[1] + `zzzzzz`);
+jsonBody.push(jsonBody[2] + `zzzzzz`);
+jsonBody.push(jsonBody[3] + `zzzzzz`);
+jsonBody.push(jsonBody[4] + `zzzzzz`);
+jsonBody.push(jsonBody[5] + `zzzzzz`);
+jsonBody.push(jsonBody[6] + `zzzzzz`);
+jsonBody.push(jsonBody[7] + `zzzzzz`);
+jsonBody.push(jsonBody[8] + `zzzzzz`);
+var largeBody = [];
+largeBody.push(`{"message": "This is the message body asfasdfasdfasdf asdfa sdf as asdf asdfa sdfa sdf",
 "asfd": "asdfasfasdfasdfllsdfglksdfjghsldkfjghsdlfkjghsdlfkgjhsdlfkgjhsdflkgjhsdlfkgjhsdflgkjshdflgkjhsdflkjgh",
 "fdsasdfasdfasdf": "vfsdwervwerwerfslfgskdfjghwlkehrwlekrhslkdjvnsdfvsdlfkjelkqherlkwjehrvlsdkjfvsdflkjvshd",
 "vfsldfkjsvndfvlskn":, "sdfgkjsdfglksjdfhgslkdjfghweoriguwhergwejrghwlekjghsdlfkgjshdflgkjshdflgkjshdlfkjghs",
@@ -36,7 +47,17 @@ var largeBody = `{"message": "This is the message body asfasdfasdfasdf asdfa sdf
 "asfd": "asdfasfasdfasdfllsdfglksdfjghsldkfjghsdlfkjghsdlfkgjhsdlfkgjhsdflkgjhsdlfkgjhsdflgkjshdflgkjhsdflkjgh",
 "fdsasdfasdfasdf": "vfsdwervwerwerfslfgskdfjghwlkehrwlekrhslkdjvnsdfvsdlfkjelkqherlkwjehrvlsdkjfvsdflkjvshd",
 "vfsldfkjsvndfvlskn":, "sdfgkjsdfglksjdfhgslkdjfghweoriguwhergwejrghwlekjghsdlfkgjshdflgkjshdflgkjshdlfkjghs",
-"sdfgsdfgsdfgs": "sdfgslkdfjghsldkfgjhsdlfkgjhsdlfkgjhsdlfkjghsdlfkgjhsdlfkgjhsldfkgjhsldkfjghsldkfjhgslkdfjh"}`;
+"sdfgsdfgsdfgs": "sdfgslkdfjghsldkfgjhsdlfkgjhsdlfkgjhsdlfkjghsdlfkgjhsdlfkgjhsldfkgjhsldkfjghsldkfjhgslkdfjh"}`);
+largeBody.push(largeBody[0] + "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+largeBody.push(largeBody[1] + "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+largeBody.push(largeBody[2] + "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+largeBody.push(largeBody[3] + "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+largeBody.push(largeBody[4] + "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+largeBody.push(largeBody[5] + "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+largeBody.push(largeBody[6] + "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+largeBody.push(largeBody[7] + "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+largeBody.push(largeBody[8] + "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+
 
 var TopicPublisher = function(hosturl, username, pass, vpn) {
     'use strict';
@@ -147,9 +168,9 @@ var TopicPublisher = function(hosturl, username, pass, vpn) {
         if (publisher.session !== null) {
             var message = solace.SolclientFactory.createMessage();
             message.setDestination(solace.SolclientFactory.createTopicDestination(topicName));
-            message.setBinaryAttachment(jsonBody);
+            message.setBinaryAttachment(jsonBody[Math.floor(Math.random() * 10)]);
             if (topicName.includes("notice") || topicName.includes("alert")) {
-                message.setBinaryAttachment(largeBody);
+                message.setBinaryAttachment(largeBody[Math.floor(Math.random() * 10)]);
             } else if (topicName.includes("v1")) {
                 message.setBinaryAttachment(jsonV1Body);
             }

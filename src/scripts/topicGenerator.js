@@ -19,7 +19,7 @@ const getTopicList = function getTopicList() {
 };
 
 function processNode(nodeName, topicTree, topicLevelList) {
-    log.debug("Processing node", nodeName);
+    //console.log("Processing node", nodeName);
     let node = topicTree["nodes"].filter((node) => node.name == nodeName)[0];
     let value = null;
 
